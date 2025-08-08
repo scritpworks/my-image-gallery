@@ -65,7 +65,7 @@ export default function AdminUpload() {
       const dataUrl = await resizeFile(file, 1600);
       setStatus("Uploading image...");
 
-      const res = await axios.post(
+      await axios.post(
         "/.netlify/functions/upload-image",
         { data: dataUrl },
         {

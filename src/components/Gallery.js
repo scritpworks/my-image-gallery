@@ -96,7 +96,7 @@ const Gallery = () => {
               >
                 <img
                   src={src}
-                  alt={`Gallery image ${index + 1}`}
+                  alt={`Gallery ${index + 1}`}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -148,7 +148,7 @@ const Gallery = () => {
 
           <img
             src={images[currentIndex]}
-            alt={`Full view ${currentIndex + 1}`}
+            alt={`Gallery ${currentIndex + 1}`}
             style={{
               maxWidth: "92vw",
               maxHeight: "85vh",
