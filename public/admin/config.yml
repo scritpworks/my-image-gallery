@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main
+  identity_url: https://temafriendsga.org/.netlify/identity
+  login: /admin/
+  registration: true
+
+publish_mode: editorial_workflow  # ← Add this line
+
+site_url: https://temafriendsga.org
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+
+collections:
+  - name: "about"
+    label: "About Section"
+    files:
+      - file: "src/content/about.md"
+        label: "About Info"
+        name: "about_page"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "public/uploads/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Alt Text", name: "alt", widget: "string" }
+
