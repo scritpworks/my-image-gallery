@@ -41,17 +41,26 @@ const Navbar = () => {
               </motion.a>
             ))}
 
-            {/* 👇 Login Button */}
-            <motion.button
-              onClick={() => window.netlifyIdentity.open()}
+            {/* 👇 Admin Login Link */}
+            <motion.a
+              href="/admin-gallery"
               className="login-button"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ delay: 0.6, duration: 0.3 }}
+              style={{
+                display: "inline-block",
+                padding: "8px 14px",
+                background: "#0ea5e9",
+                color: "#fff",
+                borderRadius: 8,
+                textDecoration: "none",
+                fontWeight: 600,
+              }}
             >
-              Login
-            </motion.button>
+              Admin Login
+            </motion.a>
           </AnimatePresence>
         </nav>
 

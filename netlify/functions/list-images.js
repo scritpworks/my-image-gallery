@@ -6,13 +6,25 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-exports.handler = async () => {
+exports.handler = async (event) => {
   try {
-    
+    const ADMIN_PASSWORD = (process.env.ADMIN_PASSWORD || "").trim();
+
+    // Normalize headers
+    const headers = {};
+    for (const key in event.headers) {
+      headers[key.toLowerCase()] = event.headers[key];
+    }
+    const providedPassword = (headers["x-admin-password"] || "").trim();
+
+    if (!ADMIN_PASSWORD || providedPassword !== ADMIN_PASSWORD) {
+      return { statusCode: 401, body: JSON.stringify({ error: "Unauthorized" }) };
+    }
+
     const res = await cloudinary.api.resources({
       type: "upload",
       prefix: "netlify-gallery",
-      max_results: 200, 
+      max_results: 200,
     });
 
     const images = res.resources.map((r) => ({

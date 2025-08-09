@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from './components/Navbar/Navbar';
 import Hero from "./components/Hero.js";
 import About from "./components/About.js";
@@ -8,30 +8,16 @@ import Donate from "./components/Donate.js";
 import Contact from "./components/Contact.js";
 import Footer from "./components/Footer.js";
 import AdminUpload from "./components/AdminUpload";
-import AdminGallery from "./components/AdminGallery"; // <-- import the admin gallery
+import AdminGallery from "./components/AdminGallery"; 
 
 function App() {
-  useEffect(() => {
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin-upload";
-        });
-        // 👇 Auto-open the widget to show login/register/reset options
-        window.netlifyIdentity.open();
-      }
-    });
-    window.netlifyIdentity.init();
-  }
-}, []);
 
-// Show AdminUpload only on /admin-upload path
+
 if (window.location.pathname === "/admin-upload") {
   return <AdminUpload />;
 }
 
-// Show AdminGallery only on /admin-gallery path
+
 if (window.location.pathname === "/admin-gallery") {
   return <AdminGallery />;
 }

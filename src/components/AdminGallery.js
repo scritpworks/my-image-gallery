@@ -96,6 +96,21 @@ export default function AdminGallery() {
       >
         Logout
       </button>
+      <a
+        href="/admin-upload"
+        style={{
+          display: "inline-block",
+          background: "#0ea5e9",
+          color: "#fff",
+          textDecoration: "none",
+          padding: "8px 14px",
+          borderRadius: 8,
+          fontWeight: 600,
+          marginBottom: 12,
+        }}
+      >
+        ➕ Upload Image
+      </a>
       <div style={{ clear: "both" }} />
       {status && <p style={{ color: "#059669", textAlign: "center" }}>{status}</p>}
       <div
