@@ -11,21 +11,18 @@ import AdminUpload from "./components/AdminUpload";
 import AdminGallery from "./components/AdminGallery"; 
 
 function App() {
+  if (window.location.pathname === "/admin-upload") {
+    return <AdminUpload />;
+  }
 
-
-if (window.location.pathname === "/admin-upload") {
-  return <AdminUpload />;
-}
-
-
-if (window.location.pathname === "/admin-gallery") {
-  return <AdminGallery />;
-}
+  if (window.location.pathname === "/admin-gallery") {
+    return <AdminGallery />;
+  }
 
   return (
     <>
       <Navbar />
-      <main style={{ paddingTop: '90px' }}>
+      <main>
         <Hero />
         <About />
         <Projects />
